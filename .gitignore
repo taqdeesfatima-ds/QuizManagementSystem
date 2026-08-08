@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+database/quiz.db
+migrate_password.py

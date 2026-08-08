@@ -1,0 +1,3 @@
+# Quiz Management System
+# Python 3.12+
+# Tkinter and SQLite3 are included with Python
