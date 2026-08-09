@@ -1,12 +1,12 @@
-#  Quiz Management System
+# Quiz Management System
 
-A desktop-based "Quiz Management System" developed using "Python, Tkinter, and SQLite".
+A desktop-based **Quiz Management System** developed using "Python, Tkinter, and SQLite".
 
 This application provides an admin interface for managing quiz questions and student records, conducting quizzes, calculating scores, and viewing quiz results.
 
 ---
 
-##  Project Overview
+## Project Overview
 
 The Quiz Management System is a Python-based desktop application designed for educational use.
 
@@ -41,7 +41,7 @@ The project follows a modular structure by separating the graphical user interfa
 - Four multiple-choice options
 - Correct answer storage
 
-###  Student Management
+### Student Management
 
 - Add students
 - View student records
@@ -70,10 +70,10 @@ The project follows a modular structure by separating the graphical user interfa
 
 ---
 
-##  Technologies Used
+## Technologies Used
 
 | Technology | Purpose |
-|------------|---------|
+|---|---|
 | Python | Application development |
 | Tkinter | Graphical User Interface |
 | SQLite | Database management |
@@ -90,80 +90,104 @@ QuizManagementSystem/
 ├── main.py
 ├── README.md
 ├── requirements.txt
+├── .gitignore
 │
 ├── database/
 │   └── database.py
 │
-└── gui/
-    ├── login.py
-    ├── register.py
-    ├── dashboard.py
-    ├── questions.py
-    ├── students.py
-    ├── quiz.py
-    └── results.py
+├── gui/
+│   ├── login.py
+│   ├── register.py
+│   ├── dashboard.py
+│   ├── questions.py
+│   ├── students.py
+│   ├── quiz.py
+│   └── results.py
+│
+└── screenshots/
+    ├── image.png
+    ├── image-1.png
+    ├── image-2.png
+    └── ...
+```
+
+> Note: `quiz.db` is used locally by the application and is excluded from the GitHub repository through `.gitignore`.
 
 ---
 
-##  File Description
+## File Description
 
-main.py
+### `main.py`
 
 The main entry point of the application.
 
 It starts the application and opens the login interface.
 
-database/database.py
+### `database/database.py`
 
 Contains database-related functions for:
 
-Creating database tables
-Admin registration
-Admin authentication
-Question management
-Student management
-Result management
-Searching questions
-database/quiz.db
+- Creating database tables
+- Admin registration
+- Admin authentication
+- Question management
+- Student management
+- Result management
+- Searching questions
 
-SQLite database used to store application data.
+### `database/quiz.db`
+
+SQLite database used to store application data locally.
 
 It contains tables for:
 
-Admins
-Questions
-Students
-Results
-gui/login.py
+- Admins
+- Questions
+- Students
+- Results
+
+### `gui/login.py`
 
 Provides the admin login interface.
 
-gui/register.py
+### `gui/register.py`
 
 Provides the admin registration interface with:
 
-Password validation
-Password strength indicator
-Password confirmation
-Show/Hide password
-Password hashing
-gui/dashboard.py
+- Password validation
+- Password strength indicator
+- Password confirmation
+- Show/Hide password
+- Password hashing
+
+### `gui/dashboard.py`
 
 Provides the main admin dashboard and navigation to different modules.
 
-gui/questions.py
+### `gui/questions.py`
 
-Handles question management operations including adding, updating, deleting, viewing, and searching questions.
+Handles question management operations including:
 
-gui/students.py
+- Adding questions
+- Updating questions
+- Deleting questions
+- Viewing questions
+- Searching questions
 
-Handles student management operations including adding, updating, deleting, and viewing students.
+### `gui/students.py`
 
-gui/quiz.py
+Handles student management operations including:
+
+- Adding students
+- Updating students
+- Deleting students
+- Viewing students
+
+### `gui/quiz.py`
 
 Handles the quiz process, answer checking, score calculation, and result saving.
 
-gui/results.py
+### `gui/results.py`
 
 Displays stored quiz results.
 
@@ -175,15 +199,20 @@ The application uses SQLite for local database management.
 
 ### Admins Table
 
+Stores administrator accounts.
+
 ```text
 admins
 ├── id
 ├── username
 └── password
-Questions Table
+```
+
+### Questions Table
 
 Stores quiz questions and their options.
 
+```text
 questions
 ├── id
 ├── question
@@ -192,61 +221,74 @@ questions
 ├── option_c
 ├── option_d
 └── correct_answer
-Students Table
+```
+
+### Students Table
 
 Stores student information.
 
+```text
 students
 ├── id
 ├── name
 ├── roll_number
 └── email
-Results Table
+```
+
+### Results Table
 
 Stores quiz attempt results.
 
+```text
 results
 ├── id
 ├── student_id
 ├── score
 └── total_questions
+```
 
-```markdown
 ---
 
 ## Security
 
 The application includes basic authentication and password security features.
 
-Password Requirements
+### Password Requirements
 
 A password must contain:
 
-At least 8 characters
-At least one uppercase letter
-At least one lowercase letter
-At least one number
-At least one special character
+- At least 8 characters
+- At least one uppercase letter
+- At least one lowercase letter
+- At least one number
+- At least one special character
 
 Example:
 
+```text
 Admin@123
-Password Hashing
+```
 
-Passwords are hashed before being stored in the database using Python's hashlib library and SHA-256 hashing.
+### Password Hashing
+
+Passwords are hashed before being stored in the database using Python's `hashlib` library and SHA-256 hashing.
 
 This prevents passwords from being stored directly as readable text.
 
-Note: For production-level applications, dedicated password-hashing algorithms such as Argon2, bcrypt, scrypt, or PBKDF2 are recommended.
+> Note: For production-level applications, dedicated password-hashing algorithms such as Argon2, bcrypt, scrypt, or PBKDF2 are recommended.
 
- Application Flow
+---
+
+## Application Flow
+
+```text
                     ┌───────────────┐
                     │   Login Page  │
                     └───────┬───────┘
                             │
                   ┌─────────┴─────────┐
                   │                   │
-              Login               Registration
+               Login             Registration
                   │                   │
                   └─────────┬─────────┘
                             │
@@ -264,41 +306,70 @@ Note: For production-level applications, dedicated password-hashing algorithms s
           └─────────────────┴─────────────────┘
                             │
                          Logout
+```
 
 ---
 
 ## Installation
-1. Clone the Repository
-git clone https://github.com/your-username/QuizManagementSystem.git
-2. Open the Project Folder
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/taqdeesfatima-ds/QuizManagementSystem.git
+```
+
+### 2. Open the Project Folder
+
+```bash
 cd QuizManagementSystem
-3. Check Python Version
+```
+
+### 3. Check Python Version
 
 Make sure Python 3 is installed.
 
+```bash
 python --version
+```
 
 The project was developed using:
 
+```text
 Python 3.12+
-4. Install Dependencies
+```
+
+### 4. Install Dependencies
 
 The project mainly uses Python's standard library.
 
+```bash
 pip install -r requirements.txt
+```
 
 Tkinter and SQLite are included with standard Python installations.
 
-5. Run the Application
+### 5. Run the Application
+
+```bash
 python main.py
- Initial Admin Account
+```
+
+---
+
+## Initial Admin Account
 
 For the initial local project setup:
 
+```text
 Username: admin
 Password: admin123
+```
 
- ## Testing Checklist
+> This account is intended for the initial local setup. Admin registration is also available through the application.
+
+---
+
+## Testing Checklist
 
 ### Authentication
 
@@ -314,7 +385,7 @@ Password: admin123
 - [x] Password hashing
 - [x] Logout
 
-## Question Management
+### Question Management
 
 - [x] Add question
 - [x] View saved questions
@@ -324,7 +395,7 @@ Password: admin123
 - [x] Store four multiple-choice options
 - [x] Store correct answer
 
-## Student Management
+### Student Management
 
 - [x] Add student
 - [x] View student records
@@ -335,7 +406,7 @@ Password: admin123
 - [x] Store roll number
 - [x] Store email
 
-## Quiz System
+### Quiz System
 
 - [x] Load saved questions
 - [x] Display multiple-choice questions
@@ -345,7 +416,7 @@ Password: admin123
 - [x] Calculate score automatically
 - [x] Save quiz results
 
-## 📊 Result Management
+### Result Management
 
 - [x] Store quiz attempts
 - [x] Store student ID
@@ -353,111 +424,144 @@ Password: admin123
 - [x] Store total questions
 - [x] Display quiz results
 
+---
+
 ## Screenshots
 
 ### Admin Login
 
-![alt text](image-1.png)
+![Admin Login](image-1.png)
 
 ### Admin Registration
 
-![alt text](image-2.png)
+![Admin Registration](image-2.png)
 
 ### Password Strength Indicator
 
-![alt text](image-12.png)
-![alt text](image-3.png)
-![alt text](image-11.png)
+![Password Strength](image-12.png)
+
+![Password Validation](image-3.png)
+
+![Password Confirmation](image-11.png)
 
 ### Admin Dashboard
 
-![alt text](image-4.png)
+![Admin Dashboard](image-4.png)
 
 ### Question Management
 
-![alt text](image-5.png)
+![Question Management](image-5.png)
 
 ### Student Management
 
-![alt text](image-6.png)
+![Student Management](image-6.png)
 
 ### Quiz
 
-![alt text](image-7.png)
-![alt text](image-8.png)
+![Quiz](image-7.png)
+
+![Quiz Score](image-8.png)
 
 ### Results
 
-![alt text](image-9.png)
-![alt text](image-10.png)
+![Results](image-9.png)
 
-Future Improvements
+![Result Details](image-10.png)
+
+---
+
+## Future Improvements
 
 The following features can be added in future versions:
 
- Student login system
- Student registration
- Admin profile management
- Password reset functionality
- Quiz timer
- Random question selection
- Quiz categories
- Difficulty levels
- Question import/export
- Result filtering
- Result search
- Result charts and analytics
- PDF result reports
- Improved UI themes
- Role-based access control
- Dedicated password-hashing algorithm
- Standalone executable application
- Learning Objectives
+- Student login system
+- Student registration
+- Admin profile management
+- Password reset functionality
+- Quiz timer
+- Random question selection
+- Quiz categories
+- Difficulty levels
+- Question import/export
+- Result filtering
+- Result search
+- Result charts and analytics
+- PDF result reports
+- Improved UI themes
+- Role-based access control
+- Dedicated password-hashing algorithm
+- Standalone executable application
+
+---
+
+## Learning Objectives
 
 This project demonstrates practical implementation of:
 
-Python programming
-Object-Oriented Programming
-Tkinter GUI development
-SQLite database management
-CRUD operations
-SQL queries
-Exception handling
-Regular expressions
-Password validation
-Password hashing
-Event-driven programming
-Modular programming
-Database integration
-Desktop application development
- Project Purpose
+- Python programming
+- Object-Oriented Programming
+- Tkinter GUI development
+- SQLite database management
+- CRUD operations
+- SQL queries
+- Exception handling
+- Regular expressions
+- Password validation
+- Password hashing
+- Event-driven programming
+- Modular programming
+- Database integration
+- Desktop application development
+
+---
+
+## Project Purpose
 
 This project was developed as a practical Python application to combine programming concepts with a real-world desktop application.
 
 It demonstrates how Python can be used to build a complete application with:
 
-GUI + Authentication + Database + CRUD Operations + Quiz System + Result Management
+```text
+GUI
++
+Authentication
++
+Database
++
+CRUD Operations
++
+Quiz System
++
+Result Management
+```
 
-Author
-Taqdees Fatima
+---
+
+## Author
+
+"Taqdees Fatima"
 
 BS Data Science Student
 
-Technical Skills
-Python
-Data Analysis
-Pandas
-NumPy
-Matplotlib
-Seaborn
-SQL
-SQLite
-Tkinter
-Object-Oriented Programming
-Database Management
-Project Status
+### Technical Skills
 
-Status: Completed and Functional
+- Python
+- Data Analysis
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- SQL
+- SQLite
+- Tkinter
+- Object-Oriented Programming
+- Database Management
+
+---
+
+## Project Status
+
+"Status: Completed and Functional"
 
 The core functionality of the Quiz Management System has been implemented and tested.
 
